@@ -19,7 +19,7 @@ fun MessageInputBar(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .navigationBarsPadding(), // 👈 bottom inset safe
+            .navigationBarsPadding(),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
