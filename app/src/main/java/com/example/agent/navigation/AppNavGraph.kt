@@ -1,6 +1,8 @@
 package com.example.agent.navigation
 
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -17,6 +19,7 @@ import com.example.agent.ui.convo.ConversationScreen
 import com.example.agent.ui.thread.ThreadsScreen
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AppNavGraph(
     modifier: Modifier = Modifier
@@ -73,7 +76,8 @@ fun AppNavGraph(
             )
         ) {
             ConversationScreen(
-                viewModel = hiltViewModel()
+                viewModel = hiltViewModel(),
+                onBack = { navController.navigate(Routes.THREADS) }
             )
         }
     }

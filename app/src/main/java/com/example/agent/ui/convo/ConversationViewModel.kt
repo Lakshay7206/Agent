@@ -1,6 +1,8 @@
 package com.example.agent.ui.convo
 
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,6 +19,7 @@ import kotlinx.coroutines.launch
 import java.time.Instant
 import javax.inject.Inject
 
+@RequiresApi(Build.VERSION_CODES.O)
 @HiltViewModel
 class ConversationViewModel @Inject constructor(
     private val messagesRepository: MessagesRepository,
