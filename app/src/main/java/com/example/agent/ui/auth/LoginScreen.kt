@@ -77,7 +77,7 @@ fun LoginScreen(
 
                 Spacer(Modifier.height(16.dp))
 
-                // 🔒 Password
+
                 OutlinedTextField(
                     value = state.password,
                     onValueChange = viewModel::onPasswordChange,
@@ -106,7 +106,8 @@ fun LoginScreen(
 
                 if (state.error != null) {
                     ErrorMessage(
-                        message = state.error!!
+                        message = state.error!!,
+
                     )
                     Spacer(Modifier.height(16.dp))
                 }

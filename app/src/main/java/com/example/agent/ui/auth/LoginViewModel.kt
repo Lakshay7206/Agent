@@ -3,6 +3,7 @@ package com.example.agent.ui.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agent.domain.repo.AuthRepository
+import com.example.agent.ui.utility.AuthErrorMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -37,7 +38,9 @@ class LoginViewModel @Inject constructor(
             _uiState.update {
                 it.copy(
                     isLoading = false,
-                    error = result.exceptionOrNull()?.message
+                    error = result.exceptionOrNull()
+                        ?.message
+                        ?.let { raw -> AuthErrorMapper.map(raw) }
                 )
             }
         }
